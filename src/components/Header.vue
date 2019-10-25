@@ -18,7 +18,7 @@
 
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="#">End Day</a>
+                        <a href="#" @click="endDay">End Day</a>
                     </li>
                     <li class="dropdown">
                         <a
@@ -58,7 +58,9 @@ export default {
     methods: {
         ...mapActions(["randomizeStocks"]),
         endDay() {
-            this.randomizeStocks;
+            console.log(3);
+
+            this.randomizeStocks();
         }
     }
 };
