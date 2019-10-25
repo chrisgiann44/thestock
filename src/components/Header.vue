@@ -41,7 +41,7 @@
                                 <a href="#" @click="saveData">Save Data</a>
                             </li>
                             <li>
-                                <a href="#">Load Data</a>
+                                <a href="#" @click="loadData">Load Data</a>
                             </li>
                         </ul>
                     </li>
@@ -65,7 +65,10 @@ export default {
         }
     },
     methods: {
-        ...mapActions(["randomizeStocks"]),
+        ...mapActions({
+            randomizeStocks: "randomizeStocks",
+            fetchData: "loadData"
+        }),
         endDay() {
             this.randomizeStocks();
         },
@@ -75,9 +78,10 @@ export default {
                 stockPortfolio: this.$store.getters.stockPortfolio,
                 stocks: this.$store.getters.stocks
             };
-            console.log(data);
-
             this.$http.put("data.json", data);
+        },
+        loadData() {
+            this.fetchData();
         }
     }
 };
