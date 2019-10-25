@@ -12,7 +12,7 @@
                     <input
                         type="number"
                         class="form-control"
-                        v-model="quantity"
+                        v-model.number="quantity"
                         placeholder="Quantity"
                     />
                 </div>
@@ -43,6 +43,7 @@ export default {
                 stockPrice: this.stock.price,
                 quantity: this.quantity
             };
+            this.$store.dispatch("buyStock", order);
             this.quantity = null;
         }
     }
