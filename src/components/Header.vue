@@ -58,8 +58,6 @@ export default {
     methods: {
         ...mapActions(["randomizeStocks"]),
         endDay() {
-            console.log(3);
-
             this.randomizeStocks();
         }
     }
